@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=Meow+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz@16..144&display=swap");
+
+@keyframes showSVG {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hideBox {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes showSVG2 {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes tearAnimation {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}
+@keyframes sadDogAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes noseAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  40%{
+    transform: translateY(0.01px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  55%{
+    transform: translateY(-10.1px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes slideDown {
+  from {
+    top: calc(-100% - 500px);
+  }
+  to {
+    top: 0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body,
+html {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+body {
+  background-color: #ffceb4;
+  transition: background-color 1s;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+}
+
+.box {
+  background-color: #f99f78;
+  border-radius: 12px;
+  padding: 50px 105px;
+  position: relative;
+}
+
+.box.hide{
+  animation: hideBox 1s forwards;
+}
+
+.box::before{
+  content: "";
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: -8px;
+  top: -8px;
+  z-index: -1;
+  border-radius: 12px;
+  box-shadow: 0 0 24px rgba(255,255,255,0.8);
+}
+
+.buttonWrapper {
+  margin-top: 140px;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+button {
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: white;
+  border: none;
+  font-family: "Montagu Slab", serif;
+  cursor: pointer;
+}
+
+.yes {
+  font-family: "Montagu Slab", serif;
+  background-color: #f3b3a6;
+  font-size: 48px;
+}
+
+.no {
+  background-color: #1f0812;
+  font-size: 36px;
+}
+
+h1 {
+  font-family: "Meow Script", cursive;
+  color: white;
+  font-size: 64px;
+}
+
+@media (max-width: 950px) {
+h1{
+  font-size: 48px;
+}
+.box{
+  padding: 32px 32px;
+margin: 0 16px;
+}
+.yes {
+font-size: 36px;
+}
+.no {
+  background-color: #1f0812;
+  font-size: 24px;
+}
+.buttonWrapper {
+display: flex;
+flex-direction: column;
+gap:16px;
+}
+}
+
+.noSectionContainer{
+  min-height: 100vh;
+  width: 100%;
+  background-color: #1F0812;
+  position: absolute;
+  /* top: calc(-100% - 500px); */
+}
+
+.noSectionContainer.show {
+  animation: slideDown 3.5s forwards;
+}
+
+.noSection{
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.noSection h2{
+  font-family: "Montagu Slab", serif;
+  color: white;
+  margin-bottom: 48px;
+  font-size: 64px;
+  text-align: center;
+}
+
+.slimeblack{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 100%;
+}
+
+.saddog{
+  width: 50%;
+  animation: sadDogAnimation 2s ease-out infinite;
+}
+
+#tear {
+  animation: tearAnimation 2s ease-out infinite;
+}
+
+#nose {
+  animation: noseAnimation 4s ease-out infinite;
+}
+
+#svg1{
+  transition: transform 1s;
+}
+
+#draggableDiv{
+  position: absolute;
+  left: 32px;
+}
+
+svg{
+  pointer-events: none;
+}
+.container2{
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background-color: #F3B3A6;
+  opacity: 0;
+  transition: opacity 1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container2 h2{
+  font-family: "Montagu Slab", serif;
+  color: white;
+  margin-bottom: 48px;
+  font-size: 64px;
+  text-align: center;
+}
+
+.container2.show{
+  opacity: 1;
+
+}
+
+#tip{
+  position: absolute;
+  top:32px;
+  left: 32px;
+  font-family: "Montagu Slab", serif;
+  color: white;
+  margin-bottom: 48px;
+  font-size: 16px;
+  text-align: center;
+}
